@@ -1,4 +1,4 @@
-import '../styles/main.css'
+import '../styles/main.scss'
 
 export default function MyApp({Component, pageProps}){ // компонент - та страница, которую мы отображаем в зависимости от url адреса
     // здесь указываем стиль нашего шрифта в теге тела, собиая при этом текущий компонент со всеми пропсами

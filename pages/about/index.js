@@ -8,7 +8,7 @@ import MainLayout from '../../components/MainLayout';
 export default function About() {
 
     const linkHandler = () => {
-        Router.push('/posts')
+        Router.push('/posts') // помогает взаимодействовать с роутингом страницы
     }
 
     return (
