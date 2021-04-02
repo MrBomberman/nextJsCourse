@@ -5,7 +5,7 @@ import Router from 'next/router'; // расширяет функционал и�
 import MainLayout from '../../components/MainLayout';
 
 
-export default function About() {
+export default function About({title}) {
 
     const linkHandler = () => {
         Router.push('/posts') // помогает взаимодействовать с роутингом страницы
@@ -13,10 +13,19 @@ export default function About() {
 
     return (
         <MainLayout title={"About page"}>
-            <h1>About PAGE</h1>
+            <h1>{title}</h1>
 
             <button onClick={linkHandler}>Go to posts </button>
             <button onClick={() => Router.push('/')}>Go back to home inline</button>
         </MainLayout>
     )
+}
+
+About.getInitialProps = async () => {
+    const response = await fetch(`${process.env.API_URL}/about`);
+    const data = await response.json();
+
+    return {
+        title: data.title
+    }
 }
